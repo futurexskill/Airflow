@@ -1,0 +1,57 @@
+sudo apt-get update
+
+sudo apt-get install python3-pip
+
+pip3 --version
+
+sudo pip3 install virtualenv
+
+virtualenv -p python venv
+
+source venv/bin/activate
+
+pip3 install "apache-airflow==2.5.0" --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-main/constraints-3.8.txt"
+
+mkdir airflow_project
+ 
+cd airflow_project
+
+export AIRFLOW_HOME=/home/futurexskills2023/airflow_project
+
+airflow db init
+
+airflow users create \
+    --username admin \
+    --firstname futurex \
+    --lastname skills \
+    --role Admin \
+    --email futurexskill@gmai.com
+
+airflow users list
+
+airflow scheduler
+
+
+
+
+
+-----------2nd window ----------
+source venv/bin/activate
+
+export AIRFLOW_HOME=/home/futurexskills2023/airflow_project
+
+airflow webserver --port 8080
+
+
+-----------3rd window ----------
+source venv/bin/activate
+
+export AIRFLOW_HOME=/home/futurexskills2023/airflow_project
+cd /home/futurexskills2023/airflow_project
+nano airflow.cfg
+CTRL X
+mkdir dags
+cd dags
+nano futurexskills_dag.py
+python futurexskills_dag.py
+------------------------------------------------------------------------
