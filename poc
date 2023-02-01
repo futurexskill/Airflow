@@ -1,0 +1,2 @@
+The purpose of this proof of concept was to test the capability of executing a series of scripts using the Airflow DAG tool. Two DAG Python files were created as part of the POC, one for executing scripts and the other for executing specific Python files.
+
